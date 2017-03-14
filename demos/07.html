@@ -1,0 +1,64 @@
+<html>
+
+	<head>
+		<meta charset = "utf-8">
+		<meta name = "viewport" content = "width=device-width, initial-scale=1, user-scalable=no">
+		<title>React</title>
+		
+		<style>
+		.succ{
+			color: #fff;
+			border: 1px solid #4CAF50;
+			background: #4CAF50;
+		}
+		.fail{
+			color: #fff;
+			border: 1px solid #e53935;
+			background: #e53935;
+		}
+		.dialog{
+			box-shadow: 0 0 10px rgba(0, 0, 0, .7);
+			width: 158px;
+			padding: 1%;
+			margin-bottom: 1%;
+		}
+		</style>
+
+	</head>
+
+	<body>
+
+		<div id="root">
+  			<!-- This div's content will be managed by React. -->
+		</div>
+
+		<script src = "../js/react.min.js"></script>
+		<script src = "../js/react-dom.min.js"></script>
+		<script src = "../js/babel.min.js"></script>
+
+<script type = "text/babel">
+
+class Confirm extends React.Component{
+	yes = ()=> alert(`You said yes`)
+	no = ()=> alert(`You said no`)
+	render = ()=> <div className = "dialog">
+					<div style = {{width: "100%"}}>{this.props.children}</div>
+					<button className = "succ" onClick = {this.yes}>👍</button>
+					<button className = "fail" onClick = {this.no}>✍🏻</button>
+				  </div>
+}
+
+
+ReactDOM.render(
+  <div>
+  	<Confirm>Hello, I'm Jesse</Confirm>
+	<Confirm>Something, Something</Confirm>
+	<Confirm>Get Lost</Confirm>
+  </div>,
+  document.getElementById(`root`)
+)
+</script>
+
+	</body>
+
+</html>
